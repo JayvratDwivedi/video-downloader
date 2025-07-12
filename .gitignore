@@ -36,13 +36,46 @@ video-downloader-backend/build/
 # VS Code
 video-downloader-backend/.vscode/
 
+
 # ==============================================
 # FRONTEND IGNORE (video-downloader-frontend)
 # ==============================================
 
+# Logs
+video-downloader-frontend/logs
+video-downloader-frontend/*.log
+video-downloader-frontend/npm-debug.log*
+video-downloader-frontend/yarn-debug.log*
+video-downloader-frontend/yarn-error.log*
+video-downloader-frontend/pnpm-debug.log*
+video-downloader-frontend/lerna-debug.log*
+
+# Node / Build
 video-downloader-frontend/node_modules/
 video-downloader-frontend/dist/
+video-downloader-frontend/dist-ssr/
+video-downloader-frontend/*.local
+
+# Environment
 video-downloader-frontend/.env
 video-downloader-frontend/.env.*.local
+
+# Editor directories and files
+video-downloader-frontend/.vscode/*
+!video-downloader-frontend/.vscode/extensions.json
 video-downloader-frontend/.idea
-video-downloader-frontend/.vscode/
+
+
+# ==============================================
+# GLOBAL (Root-level ignores)
+# ==============================================
+
+# macOS
+.DS_Store
+
+# Windows / Visual Studio
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
