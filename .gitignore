@@ -1,0 +1,48 @@
+# ==============================================
+# BACKEND IGNORE (video-downloader-backend)
+# ==============================================
+
+video-downloader-backend/HELP.md
+video-downloader-backend/target/
+video-downloader-backend/.mvn/wrapper/maven-wrapper.jar
+!video-downloader-backend/**/src/main/**/target/
+!video-downloader-backend/**/src/test/**/target/
+
+# STS
+video-downloader-backend/.apt_generated
+video-downloader-backend/.classpath
+video-downloader-backend/.factorypath
+video-downloader-backend/.project
+video-downloader-backend/.settings
+video-downloader-backend/.springBeans
+video-downloader-backend/.sts4-cache
+
+# IntelliJ IDEA
+video-downloader-backend/.idea
+video-downloader-backend/*.iws
+video-downloader-backend/*.iml
+video-downloader-backend/*.ipr
+
+# NetBeans
+video-downloader-backend/nbproject/private/
+video-downloader-backend/nbbuild/
+video-downloader-backend/dist/
+video-downloader-backend/nbdist/
+video-downloader-backend/.nb-gradle/
+video-downloader-backend/build/
+!video-downloader-backend/**/src/main/**/build/
+!video-downloader-backend/**/src/test/**/build/
+
+# VS Code
+video-downloader-backend/.vscode/
+
+# ==============================================
+# FRONTEND IGNORE (video-downloader-frontend)
+# ==============================================
+
+video-downloader-frontend/node_modules/
+video-downloader-frontend/dist/
+video-downloader-frontend/.env
+video-downloader-frontend/.env.*.local
+video-downloader-frontend/.idea
+video-downloader-frontend/.vscode/
