@@ -9,7 +9,7 @@ function App() {
   return (
     <Vortex>
       <div className="flex items-center justify-center min-h-screen px-4 ">
-        <div className=" shadow-2xl rounded-2xl p-8 max-w-xl w-full text-center">
+        <div className=" bg-white/5 rounded-[16px] backdrop-blur-md border border-white/10 p-6 shadow-2xl max-w-xl w-full text-center">
           <h1 className="text-3xl font-bold mb-6 text-white">
             Video Downloader
           </h1>
@@ -17,19 +17,7 @@ function App() {
           <Input onDownloadLink={setDownloadLink} />
 
           {downloadLink && (
-            <div className="bg-white/70 rounded-lg p-4 shadow-md mt-6">
-              <h2 className="text-xl font-semibold mb-2 text-gray-800">
-                Preview
-              </h2>
-              <a
-                href={downloadLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="break-all text-blue-700 underline"
-              >
-                {downloadLink}
-              </a>
-              <br />
+            <div className=" rounded-lg p-4 shadow-md mt-6">
               <a
                 href={downloadLink}
                 target="_blank"
