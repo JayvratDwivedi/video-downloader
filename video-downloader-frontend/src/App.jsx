@@ -1,67 +1,23 @@
 import { useState } from "react";
-import axios from "axios";
 import { Vortex } from "./components/Vortex.jsx";
+import Input from "./components/Input.jsx";
 import "./App.css";
 
 function App() {
-  const [inputUrl, setInputUrl] = useState("");
   const [downloadLink, setDownloadLink] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    setDownloadLink("");
-
-    try {
-      const response = await axios.post("http://localhost:8080/api/resolve", {
-        url: inputUrl,
-      });
-
-      setDownloadLink(response.data.downloadUrl);
-    } catch (err) {
-      setError("Error fetching download link.");
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <Vortex>
-      <div className="flex items-center justify-center min-h-screen px-4">
-        <div className="bg-white/80 backdrop-blur-md shadow-2xl rounded-2xl p-8 max-w-xl w-full text-center">
-          <h1 className="text-3xl font-bold mb-6 text-gray-800">
+      <div className="flex items-center justify-center min-h-screen px-4 ">
+        <div className=" shadow-2xl rounded-2xl p-8 max-w-xl w-full text-center">
+          <h1 className="text-3xl font-bold mb-6 text-white">
             Video Downloader
           </h1>
 
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row gap-4 mb-4"
-          >
-            <input
-              type="text"
-              placeholder="Enter Streamtape link..."
-              value={inputUrl}
-              onChange={(e) => setInputUrl(e.target.value)}
-              required
-              className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-            />
-            <button
-              type="submit"
-              disabled={loading}
-              className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 disabled:bg-blue-300 transition"
-            >
-              {loading ? "Resolving..." : "Get Link"}
-            </button>
-          </form>
-
-          {error && <p className="text-red-600 mb-4">{error}</p>}
+          <Input onDownloadLink={setDownloadLink} />
 
           {downloadLink && (
-            <div className="bg-white/70 rounded-lg p-4 shadow-md">
+            <div className="bg-white/70 rounded-lg p-4 shadow-md mt-6">
               <h2 className="text-xl font-semibold mb-2 text-gray-800">
                 Preview
               </h2>
