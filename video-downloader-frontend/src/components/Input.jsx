@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import Loader from "./Loader";
 import axios from "axios";
+import "../App.css";
 
 const Input = ({ onDownloadLink }) => {
   const [inputValue, setInputValue] = useState("");
@@ -33,17 +33,24 @@ const Input = ({ onDownloadLink }) => {
   };
 
   return (
-    <StyledWrapper>
-      <form className="searchBox" onSubmit={handleSubmit}>
+    <div className="flex flex-col items-center">
+      <form
+        class="flex items-center justify-between gap-2 max-w-[230px] bg-[#2f3640] rounded-[50px] relative"
+        onSubmit={handleSubmit}
+      >
         <input
-          className="searchInput"
+          class="border-none bg-transparent outline-none text-white text-[15px] py-6 pr-[46px] pl-[26px]"
           type="text"
           placeholder="Search something"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           required
         />
-        <button className="searchButton" type="submit" disabled={loading}>
+        <button
+          class=" absolute right-2 w-[50px] h-[50px] rounded-full text-white flex items-center justify-center [background:linear-gradient(90deg,_#2af598_0%,_#009efd_100%)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointerhover:bg-[#1a1a1a] hover:shadow-[0_10px_20px_rgba(0,0,0,0.5)] hover:-translate-y-[3px] active:shadow-none active:translate-y-0"
+          type="submit"
+          disabled={loading}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={29}
@@ -112,92 +119,19 @@ const Input = ({ onDownloadLink }) => {
         </button>
       </form>
       {loading && (
-        <div className="loaderWrapper">
+        <div class="mt-4 flex justify-center items-center bg-white/5 rounded-[16px] backdrop-blur-md border border-white/10 p-6">
           <Loader />
         </div>
       )}
-      {error && <p className="errorText">{error}</p>}
-    </StyledWrapper>
+      {error && <p class="text-red-500 mt-2">{error}</p>}
+    </div>
   );
 };
 
-const StyledWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .searchBox {
-    display: flex;
-    max-width: 230px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    background: #2f3640;
-    border-radius: 50px;
-    position: relative;
-  }
-
-  .searchButton {
-    color: white;
-    position: absolute;
-    right: 8px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(
-      --gradient-2,
-      linear-gradient(90deg, #2af598 0%, #009efd 100%)
-    );
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
-    cursor: pointer;
-  }
-
-  button:hover:enabled {
-    background-color: #1a1a1a;
-    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
-    transform: translateY(-3px);
-  }
-
-  button:active:enabled {
-    box-shadow: none;
-    transform: translateY(0);
-  }
-
-  .searchInput {
-    border: none;
-    background: none;
-    outline: none;
-    color: white;
-    font-size: 15px;
-    padding: 24px 46px 24px 26px;
-  }
-
-  .errorText {
-    color: red;
-    margin-top: 8px;
-  }
-  .loaderWrapper {
-    margin-top: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(
-      255,
-      255,
-      255,
-      0.05
-    ); /* subtle white tint for dark theme */
-    border-radius: 16px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    padding: 24px;
-  }
-`;
+// const StyledWrapper = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// `;
 
 export default Input;
